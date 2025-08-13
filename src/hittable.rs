@@ -1,8 +1,7 @@
+use crate::material::Material;
 use crate::ray::Ray;
 use crate::vec3::{Point3, Vec3};
 use std::sync::Arc;
-
-pub trait Material: Send + Sync {}
 
 #[derive(Clone)]
 pub struct HitRecord {

@@ -1,4 +1,5 @@
 mod hittable;
+mod material;
 mod ray;
 mod vec3;
 

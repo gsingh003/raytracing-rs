@@ -1,3 +1,4 @@
+mod camera;
 mod hittable;
 mod material;
 mod ray;

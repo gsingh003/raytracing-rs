@@ -26,10 +26,6 @@ impl HittableList {
         }
     }
 
-    pub fn with(objects: Vec<Arc<dyn Hittable>>) -> Self {
-        Self { objects }
-    }
-
     pub fn add(&mut self, object: Arc<dyn Hittable>) {
         self.objects.push(object);
     }

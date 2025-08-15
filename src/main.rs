@@ -11,11 +11,11 @@ use image::{Rgba, RgbaImage};
 use rand::Rng;
 use rayon::prelude::*;
 
-use crate::camera::Camera;
-use crate::hittable::{Hittable, HittableList, Sphere};
-use crate::material::{Dielectric, Lambertian, Material, Metal};
-use crate::ray::Ray;
-use crate::vec3::{Color, Point3, Vec3};
+use rtt::camera::Camera;
+use rtt::hittable::{Hittable, HittableList, Sphere};
+use rtt::material::{Dielectric, Lambertian, Material, Metal};
+use rtt::ray::Ray;
+use rtt::vec3::{Color, Point3, Vec3};
 
 const WHITE: Color = Color {
     x: 1.0,

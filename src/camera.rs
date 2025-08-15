@@ -1,3 +1,4 @@
+use crate::material::random_in_unit_sphere;
 use crate::ray::Ray;
 use crate::vec3::{Point3, Vec3};
 use rand::Rng;
@@ -44,6 +45,30 @@ impl Camera {
             u,
             v,
             lens_radius: aperture * 0.5,
+        }
+    }
+
+    pub fn get_ray(&self, s: f64, t: f64, rng: &mut dyn rand::RngCore) -> Ray {
+        let rd = self.lens_radius * random_in_unit_disk(rng);
+        let offset = self.u * rd.x + self.v * rd.y;
+
+        Ray::new(
+            self.origin + offset,
+            self.lower_left_corner + s * self.horizontal + t * self.vertical - self.origin - offset,
+        )
+    }
+}
+
+#[inline]
+fn random_in_unit_disk(rng: &mut dyn rand::RngCore) -> Vec3 {
+    loop {
+        let p = Vec3::new(
+            rng.random_range(-1.0..1.0),
+            rng.random_range(-1.0..1.0),
+            0.0,
+        );
+        if Vec3::dot(p, p) < 1.0 {
+            return p;
         }
     }
 }

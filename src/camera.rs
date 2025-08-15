@@ -1,4 +1,3 @@
-use crate::material::random_in_unit_sphere;
 use crate::ray::Ray;
 use crate::vec3::{Point3, Vec3};
 use rand::Rng;
